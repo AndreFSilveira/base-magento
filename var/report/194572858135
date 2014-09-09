@@ -1,0 +1,9 @@
+a:5:{i:0;s:256:"Error in file: "/home/erico/Projetos/magento/app/code/local/DeivisonArthur/OnepageCheckout/sql/onepagecheckout_setup/mysql4-install-3.0.2.php" - SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'onepagecheckout_setup' for key 'PRIMARY'";i:1;s:980:"#0 /home/erico/Projetos/magento/app/code/core/Mage/Core/Model/Resource/Setup.php(645): Mage::exception('Mage_Core', 'Error in file: ...')
+#1 /home/erico/Projetos/magento/app/code/core/Mage/Core/Model/Resource/Setup.php(421): Mage_Core_Model_Resource_Setup->_modifyResourceDb('install', '', '4.0.0')
+#2 /home/erico/Projetos/magento/app/code/core/Mage/Core/Model/Resource/Setup.php(327): Mage_Core_Model_Resource_Setup->_installResourceDb('4.0.0')
+#3 /home/erico/Projetos/magento/app/code/core/Mage/Core/Model/Resource/Setup.php(235): Mage_Core_Model_Resource_Setup->applyUpdates()
+#4 /home/erico/Projetos/magento/app/code/core/Mage/Core/Model/App.php(417): Mage_Core_Model_Resource_Setup::applyAllUpdates()
+#5 /home/erico/Projetos/magento/app/code/core/Mage/Core/Model/App.php(343): Mage_Core_Model_App->_initModules()
+#6 /home/erico/Projetos/magento/app/Mage.php(684): Mage_Core_Model_App->run(Array)
+#7 /home/erico/Projetos/magento/index.php(87): Mage::run('', 'store')
+#8 {main}";s:3:"url";s:72:"/index.php/admin/cache/massDisable/key/afe0b067ef80a3167ae2d3afca2ac13b/";s:11:"script_name";s:10:"/index.php";s:4:"skin";s:7:"default";}
