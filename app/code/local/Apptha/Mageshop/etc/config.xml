@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Apptha
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the EULA
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://www.apptha.com/LICENSE.txt
+*
+* ==============================================================
+*                 MAGENTO EDITION USAGE NOTICE
+* ==============================================================
+* This package designed for Magento COMMUNITY edition
+* Apptha does not guarantee correct work of this extension
+* on any other Magento edition except Magento COMMUNITY edition.
+* Apptha does not provide extension support in case of
+* incorrect edition usage.
+* ==============================================================
+*
+* @category    Apptha
+* @package     Apptha_Mageshop
+* @version     0.1.0
+* @author      Apptha Team <developers@contus.in>
+* @copyright   Copyright (c) 2014 Apptha. (http://www.apptha.com)
+* @license     http://www.apptha.com/LICENSE.txt
+*
+*/
+-->
+<config>
+	<modules>
+		<Apptha_Mageshop>
+			<version>0.1.0</version>
+		</Apptha_Mageshop>
+	</modules>
+	<global>
+		<models>
+            <mageshop>
+                <class>Apptha_Mageshop_Model</class>
+            </mageshop>
+        </models>
+		<helpers>
+			<mageshop>
+				<class>Apptha_Mageshop_Helper</class>
+			</mageshop>
+		</helpers>
+		<blocks>
+			<mageshop>
+				<class>Apptha_Mageshop_Block</class>
+			</mageshop>
+		</blocks>
+        <resources>
+            <mageshop_setup>
+                <setup>
+                    <module>Apptha_Mageshop</module>
+                    <class>Apptha_Mageshop_Model_Resource_Setup</class>
+                </setup>
+            </mageshop_setup>
+        </resources>
+	</global>
+	<frontend>
+	 	<routers>
+            <mageshop>
+                <use>standard</use>
+                <args>
+                    <frontName>mageshop</frontName>
+                    <module>Apptha_Mageshop</module>
+                </args>
+            </mageshop>
+        </routers>
+		<layout>
+			<updates>
+				<mageshop>
+					<file>apptha_mageshop.xml</file>
+				</mageshop>
+			</updates>
+		</layout>
+	</frontend>
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<mageshop>Apptha_Mageshop_Adminhtml</mageshop>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+	<adminhtml>
+		<layout>
+			<updates>
+				<mageshop>
+					<file>apptha_mageshop.xml</file>
+				</mageshop>
+			</updates>
+		</layout>
+	</adminhtml>
+	<default>
+		<mageshop>
+			<settings>
+				<enabled>1</enabled>
+			</settings>
+		</mageshop>
+	</default>
+</config>
