@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <banners_adminhtml_banners_edit>
+		<update handle="editor"/>
+    </banners_adminhtml_banners_edit>
+    <banners_adminhtml_banners_index>
+		<update handle="editor"/>
+        <reference name="content">
+            <block type="banners/adminhtml_banners" name="banners" />
+        </reference>
+    </banners_adminhtml_banners_index>
+</layout>

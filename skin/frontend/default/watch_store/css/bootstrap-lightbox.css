@@ -1,0 +1,132 @@
+/*!
+* bootstrap-lightbox.css v0.6.1 
+* Copyright 2013 Jason Butz
+* http://www.apache.org/licenses/LICENSE-2.0.txt
+*/
+
+.modal-backdrop {
+   position: fixed; 
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+/*   background-color: #000000; */
+}
+
+.modal-backdrop.fade {
+  opacity: 0;
+}
+
+.modal-backdrop,
+.modal-backdrop.fade.in {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+.lightbox {
+  
+  top: 70px;
+  z-index: 9999;
+  line-height: 0;
+  text-align: center;
+  background-color: transparent;
+  outline: none;
+	display:none;
+}
+
+.lightbox .hide {
+  display: none;
+}
+
+.lightbox .in {
+  display: block;
+}
+
+
+.lightbox-content {
+	position:relative;
+	z-index:9999;
+  display: inline-block;
+ 
+}
+.lightbox-body {
+  width:100%;
+	padding: 10px;
+	border: 8px solid #999;
+  border: 8px solid rgba(0, 0, 0, 0.3);
+  
+	background-color: #ffffff;
+	/* IE6-7 */
+	*width:92%;
+	*padding:2%;
+  *border: 2% solid #999;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding-box;
+          background-clip: padding-box;
+}
+
+
+
+.lightbox-content .lightbox-caption {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+	*bottom:  2.5%;
+  left: 11px;
+  padding: 2%;
+  font-size: 14px;
+  line-height: 18px;
+  color: #00A9C9;
+  text-align: center;
+  opacity:0.8;
+  background: #E8E7E7;
+}
+
+.lightbox-header .close {
+  margin-top: -16px;
+  margin-right: -16px;
+  font-size: 2em;
+  color: white;
+  opacity: .8;
+  filter: alpha(opacity=80);
+}
+
+.lightbox-header .close :hover {
+  opacity: .4;
+  filter: alpha(opacity=40);
+}
+
+.lightbox-footer { position:absolute; top:8px; right:10px; *top:15px; /* *top:1.8%; *right:2.8%; */ }
+.lightbox-body img {max-width:100%;}
+
+
+.lightbox-footer button.close span{
+	float:left;
+	text-indent:-9999px;
+	padding:0px;
+	margin:0px;
+	background: url(../images/btn_trash.png) center center no-repeat ;
+	width:30px;
+	height:30px;
+	border-radius:5px;
+	border:solid 1px #ddd;
+	opacity:1!important;
+}
+.lightbox-footer button.close span span {border:none; background:none;}
+
+
+
+
+
+
+
+
+
+

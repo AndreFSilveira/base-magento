@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <productlisting_adminhtml_productlisting_edit>
+		<update handle="editor"/>
+    </productlisting_adminhtml_productlisting_edit>
+	
+    <productlisting_adminhtml_productlisting_index>
+		<update handle="editor"/>
+        <reference name="content">
+            <block type="productlisting/adminhtml_productlisting" name="productlisting" />
+        </reference>
+    </productlisting_adminhtml_productlisting_index>
+	
+</layout>

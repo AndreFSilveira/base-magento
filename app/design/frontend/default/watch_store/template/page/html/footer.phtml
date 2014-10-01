@@ -1,0 +1,24 @@
+<?php
+/**
+ * Magento
+ * @copyright   Copyright ( c ) 2013 www.magebuzz.com
+ */
+?>
+<div class="footer-container">
+	<div class="social-network-container">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('watchstore_social_footer')->toHtml() ?>
+	</div>
+	<div class="container">
+		<div class="footer ">
+			<div class="footer-links">
+				<div class="box-footer-links">
+					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('watchstore_footer_links')->toHtml() ?>
+				</div>
+			</div>
+		</div>
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('watchtstore_payment_method_logo_footer')->toHtml() ?>
+	</div>
+	<div class="address">
+		<address class="container"><?php echo $this->getCopyright() ?></address>
+	</div>
+</div>

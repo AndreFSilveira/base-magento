@@ -1,0 +1,60 @@
+<?php
+/**
+ * Magento
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<div class="header-container">
+    <div class="header container">
+		
+			<div class="top-right-header col-md-9">
+				<?php echo $this->getChildHtml('store_currency') ?>
+				<?php echo $this->getChildHtml('topLinks') ?>
+			</div>
+			
+		
+			<div class="left-header col-md-3 col-sm-3">
+				<h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo-links"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+			</div>
+			
+			
+			<div class="middle-right-header col-md-9">
+				<div class="quick-access">
+					<?php echo $this->getChildHtml('topSearch') ?>
+					<?php //echo $this->getChildHtml('store_language') ?>
+				</div>
+				<div class="cart-mini-home">
+					<div class="left-cart-mini cart-mini-content-home">
+						<div class="right-cart-mini cart-mini-content-home-home">
+							<ul class="cart-mini-content">
+								<?php
+									$_quote = Mage::getSingleton('checkout/session')->getQuote();
+									$_cartQty = $_quote->getItemsQty() * 1;
+								?>
+								<li class="item-qty-cartmini"><a href="<?php echo $this->getUrl('checkout/cart') ?>"><strong><span class="item"><?php echo $_cartQty;?>&nbsp;<?php echo $this->__('item') ?>&nbsp;<?php echo $this->__('(s)') ?></span>&nbsp;<?php echo $this->__('-')?>&nbsp;</strong></a></li>
+								<li class="price-cartmini">
+									<a href="<?php echo $this->getUrl('checkout/cart') ?>">
+									<?php
+										$_quote = Mage::getSingleton('checkout/session')->getQuote();
+										$_cartQty = $_quote->getItemsQty() * 1;
+										$totals = Mage::getSingleton("checkout/cart")->getQuote()->getTotals();
+										$subtotal = $totals["subtotal"]->getValue();
+										echo Mage::helper('checkout')->formatPrice($subtotal);
+									?>	
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		
+			<div class="bottom-right-header col-md-9">
+				<?php echo $this->getChildHtml('topMenu') ?>
+			</div>
+   
+	 </div>
+</div>

@@ -1,0 +1,13 @@
+<?php
+  /*
+  * Copyright (c) 2013 www.magebuzz.com
+  */
+  if ($this->showManufacturerInProduct()):?>
+  <?php $_product = $this->getProduct();
+  $productData = $this->getProduct()->getData();?>
+  <?php $manufacturer_option_id = $productData[Mage::helper('manufacturer')->getConfigAttributrCode()];?>
+  <?php $manufacturer = $this->getManufacturerByProductId($manufacturer_option_id);?>
+  <?php if (isset($manufacturer) && $manufacturer->getId()):?>
+    <?php echo '<p>'.Mage::helper('manufacturer')->getConfigTextLabe() .' : '. '<span><b>' . $manufacturer->getName() . '</b></span></p>';?>
+    <?php endif?>
+  <?php endif;?>

@@ -1,0 +1,22 @@
+<?php
+  /*
+  * Copyright (c) 2013 www.magebuzz.com
+  */
+  $manufacturer = $this->getManufacturer();?>
+<div class="page-title">
+  <h1><?php echo $manufacturer->getName();?></h1>
+</div>
+<div class="manufacturer-description">
+  <div class="manufacturer-des-image">
+    <?php if ($manufacturer->getImage()):?>
+      <a title="<?php echo $manufacturer->getName();?>"><img width="150"  src="<?php echo $this->getManufacturerImage($manufacturer->getImage());?>" alt="<?php echo $manufacturer->getName()?>" />	</a>
+      <?php else:?>
+      <img width="150" src="<?php echo $this->getDefaultManufacturerImage();?>" alt="<?php echo $manufacturer->getName()?>" />	
+      <?php endif;?>
+  </div>
+  <div class="description-info">
+    <?php echo $manufacturer->getDescription()?>
+  </div>
+</div>
+<div class="clear" style="clear:both;"></div>
+<?php echo $this->getProductHtml()?>

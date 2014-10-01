@@ -1,0 +1,112 @@
+<?php
+/**
+ * Magento
+ 
+ */
+?>
+<?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+
+<script type="text/javascript">	
+				var $k = jQuery.noConflict();
+				$k(document).ready(function(){
+						var widthwd = $k(window).width();
+						/* alert(widthwd); */
+						var widthSl;
+						var minSl = 1;
+						
+							if(widthwd > 580){
+								minSl = 2;
+								widthSl= widthwd/2;
+								
+							}
+					
+						$k('#new-products').bxSlider({
+							maxSlides:2,
+							moveSlides:minSl,
+							minSlides:minSl,
+							slideWidth: widthSl,
+							slideMargin: 10,
+							preloadImages: 'visible', 
+							pager:false,
+							controls:true
+						});
+						
+				});
+</script>
+
+<script type="text/javascript">
+	var $newproduct = jQuery.noConflict();
+		$newproduct(document).ready(function(){
+		
+			$newproduct(".product-info-content", this).stop().animate({opacity:'0'});
+		
+		  $newproduct('.item .product-info').live('mouseout', function(){
+				$newproduct(".product-info-content", this).stop().animate({opacity:'0'});
+			}); 
+			
+			$newproduct('.item .product-info').live('mouseover', function(){
+				$newproduct(".product-info-content", this).stop().animate({opacity:'0.9'});   
+			});
+
+			
+		}); 
+</script>			
+
+<div class="new-products-container">
+	<h2 class="subtitle"><?php echo $this->__('New Products') ?></h2>
+
+			<ul class="products-grid" id="new-products">
+			<?php $i=0; foreach ($_products->getItems() as $_product): ?>
+				<li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+					<div class="item-content">
+					  <div class="product-image">
+						
+								<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(380,319) ?>"  alt="<?php echo $this->htmlEscape($_product->getName()) ?>" /></a>
+								<div class="product-info">
+									<div class="product-info-content">
+										<div class="desc std">
+											<?php $_description = nl2br($this->htmlEscape($_product->getShortDescription()))?>
+											<?php $short_desc = substr($_description, 0, 75);  ?>
+											<?php if(substr($short_desc, 0, strrpos($short_desc, ' '))!='') $short_desc = substr($short_desc, 0, strrpos($short_desc, ' '));$short_desc = $short_desc.'...'; ?>
+											<?php echo $short_desc;?>
+											<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
+										</div>
+										<div class="rating-links">
+											<?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+											<ul class="add-to-links">
+												<?php if ($this->helper('wishlist')->isAllow()) : ?>
+													<li><a href="<?php echo $this->getAddToWishlistUrl($_product) ?>" class="link-wishlist" title="<?php echo $this->__('Add to Wishlist') ?>"><?php echo $this->__('Add to Wishlist') ?></a></li>
+												<?php endif; ?>
+												<?php if ($_compareUrl = $this->getAddToCompareUrl($_product)): ?>
+													<li><a href="<?php echo $_compareUrl ?>" class="link-compare" title="<?php echo $this->__('Add to Compare') ?>"><?php echo $this->__('Add to Compare') ?></a></li>
+												<?php endif; ?>
+											</ul>
+										</div>
+									</div>
+									<div class="btn-hover">&nbsp;</div>
+								</div>
+						
+						</div>
+						<div class="product_info">
+							<h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a></h3>
+						</div>
+						
+						<div class="price-actions">
+							<?php echo $this->getPriceHtml($_product, true, '-new') ?>
+							<div class="actions">
+								<?php if($_product->isSaleable()): ?>
+									<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+								<?php else: ?>
+									<p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+								<?php endif; ?>
+								
+							</div>
+						</div>
+					</div>
+				</li>
+			<?php endforeach; ?>
+			</ul>
+	
+</div>
+
+<?php endif; ?>

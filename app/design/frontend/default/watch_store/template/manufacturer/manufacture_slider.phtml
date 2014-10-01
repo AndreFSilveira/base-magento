@@ -1,0 +1,33 @@
+<?php
+/*
+* Copyright (c) 2013 www.magebuzz.com
+*/
+?>
+<?php  if ($this->showFeaturedManufacturers()):?> 
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		jQuery('#featured-manu-images').bxSlider({
+			maxSlides: 6,
+			minSlides: 6,
+			moveSlides: 1,
+			pager:false
+		});
+	});
+</script>
+<div class="store-manufacturer">
+	<?php $featuredManufacturers = $this->getFeaturedManufacturers();?>
+	<?php if(count($featuredManufacturers)): ?>
+	<ul id="featured-manu-images">
+	<?php $i = 0; foreach ($featuredManufacturers as $featuredManu): $i++?>
+		<li>
+			<a title="<?php echo $featuredManu->getName();?>" onclick="window.open('<?php echo $this->getManufacturerUrl($featuredManu->getId()); ?>')" >
+			<img id="img<?php echo $i; ?>" src="<?php echo $this->getFeaturedImage($featuredManu->getImage())?>" alt="<?php echo $featuredManu->getName();?>"/>
+			</a>
+		</li>
+	<?php endforeach ?>
+	</ul>
+	<?php endif;?>
+</div>
+<?php else:?>
+<p class="note-msg"><?php echo $this->__('There are no manufacturer matching the selection.') ?></p>
+<?php endif;?>

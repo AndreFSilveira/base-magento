@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+			<reference name="head">
+				<action method="addItem" ifconfig="banners/general/include_js"><type>skin_js</type><name>js/magebuzz/banners/jquery.min.js</name></action>
+        <action method="addItem" ifconfig="banners/general/include_js"><type>skin_js</type><name>js/magebuzz/banners/jquery.noconflict.js</name></action>
+        <action method="addItem"><type>skin_js</type><name>js/magebuzz/banners/jquery.bxslider.js</name></action>
+				<action method="addCss"><stylesheet>css/magebuzz/banners/styles.css</stylesheet></action>
+			</reference>
+    </default>
+    <banners_index_index>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="banners/banners" name="banners" template="banners/banners.phtml" />
+        </reference>
+    </banners_index_index>
+</layout> 

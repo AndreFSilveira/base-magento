@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<config>
+<!--
+<websites>
+<admin>
+<dev>
+<debug>
+<template_hints>1</template_hints>
+<template_hints_blocks>1</template_hints_blocks>
+</debug>
+</dev>
+</admin>
+</websites>
+-->
+
+    <modules>
+        <Magebuzz_Productlisting>
+            <version>0.1.0</version>
+        </Magebuzz_Productlisting>
+    </modules>
+    <frontend>
+		<secure_url>
+            <productlisting>/productlisting/</productlisting>
+        </secure_url>	
+        <routers>
+            <productlisting>
+                <use>standard</use>
+                <args>
+                    <module>Magebuzz_Productlisting</module>
+                    <frontName>productlisting</frontName>
+                </args>
+            </productlisting>
+        </routers>
+        <layout>
+            <updates>
+                <productlisting>
+                    <file>productlisting.xml</file>
+                </productlisting>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<productlisting>
+				<use>admin</use>
+				<args>
+					<module>Magebuzz_Productlisting</module>
+					<frontName>productlisting</frontName>
+				</args>
+			</productlisting>
+        </routers>
+    </admin>
+    <adminhtml>
+		<layout>
+			<updates>
+				<productlisting>
+					<file>productlisting.xml</file>
+				</productlisting>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <productlisting>
+                <class>Magebuzz_Productlisting_Model</class>
+                <resourceModel>productlisting_mysql4</resourceModel>
+            </productlisting>
+            <productlisting_mysql4>
+                <class>Magebuzz_Productlisting_Model_Mysql4</class>
+                <entities>
+                    <productlisting>
+                        <table>productlisting</table>
+                    </productlisting>
+                </entities>
+            </productlisting_mysql4>
+        </models>
+        <resources>
+            <productlisting_setup>
+                <setup>
+                    <module>Magebuzz_Productlisting</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </productlisting_setup>
+            <productlisting_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </productlisting_write>
+            <productlisting_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </productlisting_read>
+        </resources>
+        <blocks>
+            <productlisting>
+                <class>Magebuzz_Productlisting_Block</class>
+            </productlisting>
+        </blocks>
+        <helpers>
+            <productlisting>
+                <class>Magebuzz_Productlisting_Helper</class>
+            </productlisting>
+        </helpers>
+		<template>
+			<email>
+				<productlisting_general_email_template>
+					<label>Title Email</label>
+					<file>productlisting_example.html</file>
+					<type>html</type>
+				</productlisting_general_email_template>
+			</email>
+		</template>			
+    </global>
+
+	<default>
+		<productlisting>
+			<product_setting>
+				<type_product>bestseller</type_product>
+				<category_filter>1</category_filter>
+				<num_products>4</num_products>
+				<title_product></title_product>
+				<show_description>1</show_description>
+			</product_setting>
+		</productlisting>
+	</default>
+	
+	<translate>
+		<modules>
+			<Magebuzz_Productlisting>
+				<files>
+					<default>Magebuzz_Productlisting.csv</default>
+				</files>
+			</Magebuzz_Productlisting>
+		</modules>
+	</translate>	
+</config>
